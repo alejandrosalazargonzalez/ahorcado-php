@@ -1,10 +1,24 @@
 <?php
 session_start();
+class WordProvider{
+    private $filePath;
+    public function __construct(string $filePath){
+        $this ->filePath =$filePath;
+    }
+    private function getPalabras(): array|bool{
+        return file($this->filePath);
+    }
 
-$palabras = ["PROGRAMACION", "PHP", "AHORCADO", "JUEGO", "WEB"];
+    public function randomPalabra(){
+        $palabras = $this->getPalabras();
+        if ( is_array($palabras)) {
+            return array_rand($palabras);
+        }
+    }
+}
 
 if (!isset($_SESSION['palabra'])) {
-    $_SESSION['palabra'] = $palabras[array_rand($palabras)];
+    $_SESSION['palabra'] = $WordProvider -> randomPalabra;
     $_SESSION['intentos'] = 6;
     $_SESSION['letras_usadas'] = [];
 }
