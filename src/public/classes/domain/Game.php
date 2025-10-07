@@ -14,7 +14,7 @@ class Game {
     /**
      * Inicializa o restaura estado
      */
-    public function __construct(string $palabra, int $intentosMaximos = 6, array $state = null) {
+    public function __construct(string $palabra, int $intentosMaximos = 6, ?array $state = null) {
         if ($state) {
             $this->palabra = $state['palabra'];
             $this->intentosMaximos = $state['intentosMaximos'];
