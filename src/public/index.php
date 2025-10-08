@@ -21,7 +21,7 @@ include './classes/Renderer.php';
 include './classes/WordProvider.php';
 
 
-use classes\Game as Game ;
+use App\Domain\Entity\Game as Game ;
 use classes\Renderer as Renderer;
 use classes\WordProvider as WordProvider;
 use classes\SessionStorage as SessionStorage;
