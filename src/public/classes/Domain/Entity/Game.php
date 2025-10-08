@@ -4,7 +4,7 @@
  * @version 1.0.0
  * toda la logica del juego
  */
-namespace classes;
+namespace App\Domain\Entity;
 class Game {
     private string $palabra;
     private int $intentosMaximos;
