@@ -7,6 +7,6 @@ return [
         'games_file' => __DIR__ . '/../storage/games.json',
     ],
     'game' => [
-        'max_attempts' => 7,
+        'max_attempts' => 6,
     ],
 ];

@@ -5,7 +5,7 @@
  * dibuja el ahorcado en ASCII
  */
 
-namespace classes;
+namespace App\Presentation\Views;
 class Renderer {
     public function ascii(int $attemptsLeft): string {
         $stages = [

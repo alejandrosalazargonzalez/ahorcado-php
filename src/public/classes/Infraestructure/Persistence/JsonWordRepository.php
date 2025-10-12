@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Infrastructure\Persistence;
+namespace App\Infraestructure\Persistence;
 
 use App\Domain\Repository\WordRepositoryInterface;
 

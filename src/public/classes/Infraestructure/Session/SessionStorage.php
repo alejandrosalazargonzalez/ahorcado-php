@@ -4,7 +4,7 @@
  * @version 1.0.0
  */
 
-namespace classes;
+namespace App\Infraestructure\Session;
 class SessionStorage {
     private string $key;
 

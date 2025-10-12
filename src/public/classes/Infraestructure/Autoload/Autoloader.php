@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Infrastructure\Autoload;
+namespace App\Infraestructure\Autoload;
 
 final class Autoloader
 {
     private array $prefixes = [];
 
-    public static function register(string $prefix = 'App\'', string $baseDir = __DIR__ . '/../../'): void
+    public static function register(string $prefix = 'App\\', string $baseDir = __DIR__ . '/classes'): void
     {
         $loader = new self();
         $loader->addNamespace($prefix, $baseDir);
@@ -16,7 +16,7 @@ final class Autoloader
 
     public function addNamespace(string $prefix, string $baseDir): void
     {
-        $prefix = trim($prefix, '\'') . '\'';
+        $prefix = trim($prefix, '\\') . '\\';
         $baseDir = rtrim($baseDir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         $this->prefixes[$prefix] = $baseDir;
     }
@@ -30,10 +30,11 @@ final class Autoloader
                 continue;
             }
             $relativeClass = substr($class, $len);
-            $file = $baseDir . str_replace('\'', DIRECTORY_SEPARATOR, $relativeClass) . '.php';
+            $file = $baseDir . str_replace('\\', DIRECTORY_SEPARATOR, $relativeClass) . '.php';
             if (is_file($file))
             {
                 require $file;
+                return;
             }
         }
     }
